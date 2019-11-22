@@ -1,3 +1,8 @@
+---
+output:
+pdf_document: default
+html_document: default
+---
 Information
 This is an example code of a HILICPos + HILICNeg targeted, QE run.
 This code retrieves mol/L from peak areas of targeted compounds.
@@ -24,6 +29,7 @@ test <- which(duplicated(Ingalls.Standards$Compound.Name))
 duplicate_compounds <- as.data.frame(Ingalls.Standards$Compound.Name[test]) %>%
   rename(Compound.Name = 1)
 ```
+
 
 Import transect files, munge, and join with standards file.
 ```{r echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
@@ -147,7 +153,7 @@ Samp.Data.transect <- read.csv("data_processed/BMIS_Output.csv") %>%
 
 *Volume of seawater filtered for all TRANSECT samples was 5 L*
 
-Calculate umol in vial for eddy center compounds without an internal standard.
+Calculate umol in vial for transect compounds without an internal standard.
 ```{r echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 Quan.Dat.transect <- Samp.Data.transect %>%
   mutate(RF.ave = as.numeric(rowMeans(Samp.Data.transect[, c("RF.min", "RF.max")]))) %>%
@@ -245,6 +251,7 @@ quanDat2 <- all.info %>%
   unique()
 
 ```
+
 
 Obtain numbers for Carbon and Nitrogen according to their emperical formulas
 ```{r echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}

@@ -41,7 +41,6 @@ transect <- read.csv("data_processed/QC_Output.csv", header = TRUE) %>%
 
 
 # Change class + adjust data. Set cutoff values -----------------------------------------------------------------
-
 transect <- transect %>%
   filter(!str_detect(ReplicateName, "Blk")) %>%
   filter(!str_detect(ReplicateName, "Std")) %>%

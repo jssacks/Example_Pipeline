@@ -44,7 +44,6 @@ for(i in names) {
 
 
 
-
 # Trim, set header, filter unknowns ---------------------------------------
 
 SN.pos <- header.true(SN_HILICPos_EddyTransect)
@@ -233,5 +232,6 @@ combined.neg <- testArea.neg %>%
 
 combined <- rbind(combined.pos, combined.neg)
 
+# This is a comment
 
 rm(list=setdiff(ls(), "combined"))
